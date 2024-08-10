@@ -5,22 +5,9 @@ import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-    Collapsible,
-    CollapsibleTrigger
-} from "@/components/ui/collapsible";
-import {
-    Tooltip,
-    TooltipTrigger,
-    TooltipContent,
-    TooltipProvider
-} from "@/components/ui/tooltip";
-import {
-    DropdownMenu,
-    DropdownMenuLabel,
-    DropdownMenuTrigger,
-    DropdownMenuContent,
-} from "@/components/ui/dropdown-menu";
+import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import { DropdownMenu, DropdownMenuLabel, DropdownMenuTrigger, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 
 export function CollapseMenuButton({ icon: Icon, label, active, isOpen }) {
     const [isCollapsed, setIsCollapsed] = useState(isSubmenuActive);
