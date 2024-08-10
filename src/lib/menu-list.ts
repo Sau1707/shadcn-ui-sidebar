@@ -1,101 +1,52 @@
 import {
-  Tag,
-  Users,
-  Settings,
-  Bookmark,
-  SquarePen,
-  LayoutGrid,
-  LucideIcon
+    Tag,
+    Users,
+    Settings,
+    Bookmark,
+    SquarePen,
+    LayoutGrid,
 } from "lucide-react";
 
-type Submenu = {
-  href: string;
-  label: string;
-  active: boolean;
-};
 
-type Menu = {
-  href: string;
-  label: string;
-  active: boolean;
-  icon: LucideIcon
-  submenus: Submenu[];
-};
+export function getMenuList(): any {
 
-type Group = {
-  groupLabel: string;
-  menus: Menu[];
-};
-
-export function getMenuList(pathname: string): Group[] {
-  return [
-    {
-      groupLabel: "",
-      menus: [
+    return [
         {
-          href: "/dashboard",
-          label: "Dashboard",
-          active: pathname.includes("/dashboard"),
-          icon: LayoutGrid,
-          submenus: []
-        }
-      ]
-    },
-    {
-      groupLabel: "Contents",
-      menus: [
-        {
-          href: "",
-          label: "Posts",
-          active: pathname.includes("/posts"),
-          icon: SquarePen,
-          submenus: [
-            {
-              href: "/posts",
-              label: "All Posts",
-              active: pathname === "/posts"
-            },
-            {
-              href: "/posts/new",
-              label: "New Post",
-              active: pathname === "/posts/new"
-            }
-          ]
+            href: "/dashboard",
+            label: "Dashboard",
+            active: true,
+            icon: LayoutGrid,
         },
         {
-          href: "/categories",
-          label: "Categories",
-          active: pathname.includes("/categories"),
-          icon: Bookmark,
-          submenus: []
+            href: "",
+            label: "Posts",
+            active: false,
+            icon: SquarePen,
         },
         {
-          href: "/tags",
-          label: "Tags",
-          active: pathname.includes("/tags"),
-          icon: Tag,
-          submenus: []
-        }
-      ]
-    },
-    {
-      groupLabel: "Settings",
-      menus: [
-        {
-          href: "/users",
-          label: "Users",
-          active: pathname.includes("/users"),
-          icon: Users,
-          submenus: []
+            href: "/categories",
+            label: "Categories",
+            active: false,
+            icon: Bookmark,
         },
         {
-          href: "/account",
-          label: "Account",
-          active: pathname.includes("/account"),
-          icon: Settings,
-          submenus: []
+            href: "/tags",
+            label: "Tags",
+            active: false,
+            icon: Tag,
+        },
+        {
+            href: "/users",
+            label: "Users",
+            active: false,
+            icon: Users,
+        },
+        {
+            href: "/account",
+            label: "Account",
+            active: false,
+            icon: Settings,
+
         }
-      ]
-    }
-  ];
+    ]
 }
