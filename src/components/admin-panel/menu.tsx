@@ -1,14 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { Ellipsis, LogOut } from "lucide-react";
-import { usePathname } from "next/navigation";
-
-import { cn } from "@/lib/utils";
 import { getMenuList } from "@/lib/menu-list";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CollapseMenuButton } from "@/components/admin-panel/collapse-menu-button";
 import {
     Tooltip,
     TooltipTrigger,
@@ -37,12 +31,12 @@ export function Menu({ isOpen }: MenuProps) {
                                             className="w-full justify-start h-10 mb-1"
                                             asChild
                                         >
-                                            <Link href={href}>
+                                            <a href={href}>
                                                 <span className="mr-4">
                                                     <Icon size={18} />
                                                 </span>
                                                 <p className="max-w-[200px] truncate">{label}</p>
-                                            </Link>
+                                            </a>
                                         </Button>
                                     </TooltipTrigger>
                                     {isOpen === false && (
