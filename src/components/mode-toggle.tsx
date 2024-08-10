@@ -1,14 +1,24 @@
 "use client";
 
-import * as React from "react";
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 
 export function ModeToggle() {
-    const { setTheme, theme } = useTheme();
+    const [theme, setTheme] = useState(
+        typeof window !== "undefined" ? localStorage.getItem("theme") || "light" : "light"
+    );
+
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     return (
         <TooltipProvider disableHoverableContent>
@@ -25,7 +35,6 @@ export function ModeToggle() {
                         <span className="sr-only">Switch Theme</span>
                     </Button>
                 </TooltipTrigger>
-                <TooltipContent side="bottom">Switch Theme</TooltipContent>
             </Tooltip>
         </TooltipProvider>
     );
